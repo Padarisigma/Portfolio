@@ -25,7 +25,7 @@ export default function About() {
 								animation='blurInUp'
 								by='character'
 								once
-								className='tracking-[2px] text-4xl md:text-6xl font-bold mb-4'
+								className='tracking-[2px] text-[30px] sm:text-4xl md:text-6xl font-bold mb-4'
 							>
 								Hi, I am Izzatullo
 							</TextAnimate>

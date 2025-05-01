@@ -58,12 +58,12 @@ export default function Home() {
 			<DockDemo />
 			<main>
 				<div className='relative flex sm:h-[500px] w-full flex-col items-center justify-center sm:overflow-hidden rounded-lg bg-background'>
-					<section className='relative mt-[100px] overflow-hidden flex flex-col sm:flex-row w-[85%] m-auto justify-between items-center'>
-						<aside className='flex flex-col gap-[20px] items-start'>
-							<SparklesText className='text-[50px]'>
+					<section className='relative mt-[100px] overflow-hidden flex flex-col sm:flex-row w-[95%] sm:w-[85%] m-auto justify-between items-center'>
+						<aside className='flex flex-col text-center sm:text-left gap-[20px] items-center sm:items-start'>
+							<SparklesText className='text-[30px] sm:text-[50px]'>
 								Doronshozoda Izzatullo
 							</SparklesText>
-							<p className='text-[18px] sm:w-[500px]'>
+							<p className='text-[18px]  sm:w-[500px]'>
 								Я — программист, ориентированный на качество, производительность
 								и чистый код. Работаю с современным стеком технологий и всегда
 								стремлюсь к эффективным решениям.

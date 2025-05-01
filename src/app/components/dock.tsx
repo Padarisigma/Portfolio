@@ -93,7 +93,7 @@ const DATA = {
 
 export function DockDemo() {
 	return (
-		<div className='flex fixed  left-[15%] sm:left-[38%] z-80 bottom-[40px] flex-col items-center justify-center'>
+		<div className='flex fixed  w-[100%] z-80 bottom-[40px] flex-col items-center justify-center'>
 			<TooltipProvider>
 				<Dock direction='middle'>
 					{DATA.navbar.map(item => (

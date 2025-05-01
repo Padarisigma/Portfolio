@@ -8,6 +8,7 @@ import { Meteors } from '@/components/magicui/meteors'
 import { AnimatedList } from '@/components/magicui/animated-list'
 import axios from 'axios'
 import { ShineBorder } from '@/components/magicui/shine-border'
+import Link from 'next/link'
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -116,20 +117,23 @@ const Contact = () => {
                   <Button variant="outline" size="icon" className="rounded-full">
                     <Linkedin className="h-4 w-4" />
                   </Button>
-                  <span>linkedin.com/in/yourname</span>
+                  <Link href={'https://www.linkedin.com/'}> <span>linkedin.com/in/yourname</span></Link>
+                 
                 </div> 
                 <div className="flex items-center gap-3">
                   <Button variant="outline" size="icon" className="rounded-full">
                     <Github className="h-4 w-4" />
                    
                   </Button>
-                  <span>github.com/padarisigma</span>
+                  <Link href={'https://github.com/Padarisigma'}><span>github.com/padarisigma</span></Link>
+                  
                 </div>
                 <div className="flex items-center gap-3">
                   <Button variant="outline" size="icon" className="rounded-full">
                   <InstagramIcon/>
                   </Button>
-                  <span>instagram/padarisigma</span>
+                  <Link href={'https://www.instagram.com/doronshozodaa/'}><span>instagram/padarisigma</span></Link>
+                  
                 </div>
               </AnimatedList>
               
