@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
@@ -10,7 +9,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import React, { PropsWithChildren, useRef } from "react";
+import React, {  useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -18,17 +17,15 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;
   iconSize?: number;
   iconMagnification?: number;
-  iconDistance?: number;
   direction?: "top" | "middle" | "bottom";
   children: React.ReactNode;
 }
 
 const DEFAULT_SIZE = 40;
 const DEFAULT_MAGNIFICATION = 60;
-const DEFAULT_DISTANCE = 140;
 
 const dockVariants = cva(
-  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max items-center justify-center gap-2 rounded-2xl border p-2 backdrop-blur-md",
+  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max items-center justify-center gap-2 rounded-2xl border p-2 backdrop-blur-md"
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -38,24 +35,31 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       children,
       iconSize = DEFAULT_SIZE,
       iconMagnification = DEFAULT_MAGNIFICATION,
-      iconDistance = DEFAULT_DISTANCE,
       direction = "middle",
       ...props
     },
-    ref,
+    ref
   ) => {
     const mouseX = useMotionValue(Infinity);
 
     const renderChildren = () => {
       return React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.type === DockIcon && typeof child.props === 'object') {
-          return React.cloneElement(child, {
-            ...child.props,  // Здесь уже безопасно использовать spread
-            mouseX: mouseX,
-            size: iconSize,
-            magnification: iconMagnification,
-          });
+        // Проверяем, является ли child валидным элементом
+        if (React.isValidElement(child)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const childProps = child.props as React.PropsWithChildren<any>; // Приводим к типу объекта
+
+          // Проверяем, если это DockIcon, то передаем дополнительные свойства
+          if (child.type === DockIcon) {
+            return React.cloneElement(child, {
+              ...childProps,  // Спредим все свойства child.props
+              mouseX: mouseX,  // Добавляем mouseX
+              size: iconSize,   // Передаем iconSize
+              magnification: iconMagnification,  // Передаем magnification
+            });
+          }
         }
+
         return child;
       });
     };
@@ -75,7 +79,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         {renderChildren()}
       </motion.div>
     );
-  },
+  }
 );
 
 Dock.displayName = "Dock";
@@ -88,13 +92,12 @@ export interface DockIconProps
   mouseX?: MotionValue<number>;
   className?: string;
   children?: React.ReactNode;
-  props?: PropsWithChildren;
 }
 
 const DockIcon = ({
   size = DEFAULT_SIZE,
   magnification = DEFAULT_MAGNIFICATION,
-  distance = DEFAULT_DISTANCE,
+  distance = 140,
   mouseX,
   className,
   children,
@@ -112,7 +115,7 @@ const DockIcon = ({
   const sizeTransform = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [size, magnification, size],
+    [size, magnification, size]
   );
 
   const scaleSize = useSpring(sizeTransform, {
@@ -127,7 +130,7 @@ const DockIcon = ({
       style={{ width: scaleSize, height: scaleSize, padding }}
       className={cn(
         "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        className,
+        className
       )}
       {...props}
     >
