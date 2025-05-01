@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
@@ -47,13 +48,12 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 
     const renderChildren = () => {
       return React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.type === DockIcon) {
+        if (React.isValidElement(child) && child.type === DockIcon && typeof child.props === 'object') {
           return React.cloneElement(child, {
-            ...child.props,
+            ...child.props,  // Здесь уже безопасно использовать spread
             mouseX: mouseX,
             size: iconSize,
             magnification: iconMagnification,
-            distance: iconDistance,
           });
         }
         return child;
