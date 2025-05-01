@@ -63,7 +63,6 @@ export default function Home() {
 							<SparklesText className='text-[50px]'>
 								Doronshozoda Izzatullo
 							</SparklesText>
-							;
 							<p className='text-[18px] sm:w-[500px]'>
 								Я — программист, ориентированный на качество, производительность
 								и чистый код. Работаю с современным стеком технологий и всегда
