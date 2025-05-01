@@ -33,7 +33,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+				<ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
 					<header className=' bg-black text-white'>
 						<nav className='w-[85%] m-auto flex py-[30px] justify-between items-center'>
 							<p className='font-bold text-[30px] text-white tracking-[1px]'>
