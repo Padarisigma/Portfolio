@@ -103,8 +103,7 @@ const Contact = () => {
             <div>
               <h2 className="text-3xl font-bold tracking-tighter mb-4">Get In Touch</h2>
               <p className="text-muted-foreground mb-6">
-                I m currently available for freelance work and full-time positions. If you have a project that needs
-                some creative touch, let s talk!
+                Если я вас заинтересовал вы можете написать мне сообщения оставив  свой имейл адресс и я обязательно дам вам обратную связь!!
               </p>
               <AnimatedList>
               <div className="flex items-center gap-3">

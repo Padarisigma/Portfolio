@@ -14,7 +14,6 @@ import { OrbitingCirclesDemo } from './components/circles'
 import { Cover } from './components/cover'
 import { DockDemo } from './components/dock'
 import { ThreeDMarqueeDemoSecond } from './components/marquee'
-import { MarqueeDemo } from './components/reviewCard'
 
 export default function Home() {
 	const { resolvedTheme } = useTheme()
@@ -107,9 +106,6 @@ export default function Home() {
 					</BentoGrid>
 				</section>
 				<ThreeDMarqueeDemoSecond />
-				<div className='pt-[100px] pb-[60px] flex items-center justify-between'>
-					<MarqueeDemo />
-				</div>
 			</main>
 		</>
 	)
